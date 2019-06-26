@@ -1,0 +1,5 @@
+Welcome :
+	Welcome to scalia, the scale practise app !
+
+Base :
+
