@@ -1,5 +1,66 @@
 Welcome :
+
 	Welcome to scalia, the scale practise app !
 
 Base :
 
+	- add sequences by typing add
+	- type start with gamemode to start a game
+	- type end to end the game
+	- type help for more advanced help
+
+Help :
+
+	The scalia tool allows you to pick automatically random
+	combinations of predefined sequences, such as combinations
+	of pitch quality or scales, hence its interest for scale 
+	practise.
+
+	The following commands are available :
+	  - help (show help)
+	  - add (add sequence)
+	  - displaySequences (showw added sequences)
+	  - remove [n] (remove sequence of given index)
+	  - start (start game)
+	  - end (end game)
+	  - exit (exit game)
+
+	There are several gamemodes : 
+	  - arcade : combinations are being picked indefinitely
+	  untill you end the game.
+	  - complete : the game ends when the combinations have all
+	  appeared.
+	  - reps : the game ends after a number of reps defined by
+	  the user.
+
+	Starting the game : 
+	  - the user can add sequences by typing the command add
+	  followed by a sequence separated by whitespaces.
+	  - the user can remove sequences by typing the command
+	  remove followed by the ID of the sequence.
+	  - the useer can check out added sequences by typing the
+	  command checkout.
+	  - the user can start the game using the start command
+	  followed by the gamemode.
+
+	In game : 
+	  - the user can get the next combination by pressing enter.
+	  - the user can end the game with enter.
+
+DisplaySequences :
+
+	The current Sequences have been added
+
+GameStart :
+
+	The game has started !
+	Press enter to get a new combination, and type end to finsh 
+	the game.
+
+GameEnd : 
+
+	The game has ended !
+
+Quit : 
+
+	Thanks for practising with us !
