@@ -12,7 +12,6 @@ class RandomShell(cmd.Cmd):
         self.gameMode = "return"
         self.msgs = prompts.Prompter("prompts.txt")
         self.intro = self.msgs.get("Welcome") + self.msgs.get("Base")
-
     def do_help(self,arg):
         self.msgs.display("Help")
 
