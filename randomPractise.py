@@ -10,7 +10,7 @@ class RandomShell(cmd.Cmd):
         self.rd = SequenceSet()
         self.prompt = '(scalia)'
         self.gameMode = "return"
-        self.msgs = prompts.Prompter("prompts.txt")
+        self.msgs = prompts.Prompter("./assets/prompts.txt")
         self.intro = self.msgs.get("Welcome") + self.msgs.get("Base")
     def do_help(self,arg):
         self.msgs.display("Help")
