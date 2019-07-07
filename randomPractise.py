@@ -1,6 +1,7 @@
 import cmd
 from randomSequence import *
 import prompts
+import game
 
 class RandomShell(cmd.Cmd):
 
@@ -12,51 +13,27 @@ class RandomShell(cmd.Cmd):
         self.gameMode = "return"
         self.msgs = prompts.Prompter("./assets/prompts.txt")
         self.intro = self.msgs.get("Welcome") + self.msgs.get("Base")
-    def do_help(self,arg):
+    def do_help(self,args):
         self.msgs.display("Help")
 
-    def do_add(self,arg):
-        if not(self.started):
-            self.rd.addSequence(arg.split())
+    def do_add(self,args):
+        self.rd.addSequence(args.split())
 
-    def do_displaySequences(self,arg):
+    def do_displaySequences(self,args):
         self.msgs.display("DisplaySequences")
         for i in range(len(self.rd.sequences)):
             print(f"[{i+1}] "+ " ".join(self.rd.sequences[i]))
         print("\n")
 
-    def do_remove(self,arg):
-        self.rd.sequences.pop(int(arg)-1)
+    def do_remove(self,args):
+        self.rd.sequences.pop(int(args)-1)
 
-    def do_start(self,arg):
+    def do_start(self,args):
         self.msgs.display("GameStart")
-        self.started = True
-        if arg=="complete" :
-            self.gameMode = "noReturn"
-            print(" ".join(self.rd.pickNoReturn()))
-        else :
-            print(" ".join(self.rd.pickReturn()))
+        game.startGame(self.rd,args)
+        self.rd.flush()
 
-    def emptyline(self):
-        if self.started :
-            if self.gameMode == "noReturn":
-                if len(self.rd.picks)>0:
-                    print(" ".join(self.rd.pickNoReturn()))
-                else :
-                    self.msgs.display("GameEnd")
-                    self.msgs.display("Base")
-                    self.started=False
-            else :
-                print(" ".join(self.rd.pickReturn()))
-
-
-    def do_end(self,arg):
-        if self.started :
-            self.msgs.display("GameEnd")
-            self.msgs.display("Base")
-            self.started = False
-
-    def do_exit(self,arg):
+    def do_exit(self,args):
         self.msgs.display("Quit")
         return True
 

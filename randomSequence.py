@@ -32,3 +32,7 @@ class SequenceSet :
         pick = random.choice(self.picks)
         self.picks.remove(pick)
         return pick
+
+    def flush(self):
+        self.sequences=[]
+        self.picks=[]
