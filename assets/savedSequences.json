@@ -1,1 +1,1 @@
-{"sequences": [{"name": "pitches", "items": ["C", "D", "E", "F", "G", "A", "B"]}]}
+{"sequences": [{"name": "quality", "items": ["Major", "minor"]}, {"name": "pitches", "items": ["C", "D", "E", "F", "G", "A", "B"]}]}
