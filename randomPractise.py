@@ -14,7 +14,7 @@ class RandomShell(cmd.Cmd):
         self.prompt = '(scalia)'
         self.gameMode = "return"
         self.msgs = prompts.Prompter("./assets/prompts.txt")
-        self.intro = self.msgs.get("Welcome") + self.msgs.get("Base")
+        self.intro = self.msgs.get("Welcome") + "\n" + self.msgs.get("Base")
 
     def do_help(self,args):
         self.msgs.display("Help")
@@ -36,7 +36,6 @@ class RandomShell(cmd.Cmd):
         self.msgs.display("DisplaySequences")
         for i in range(len(self.rd.sequences)):
             print(f"[{i+1}] "+ " ".join(self.rd.sequences[i]))
-        print("\n")
 
     def do_save(self,args):
         items = args.split()
@@ -51,7 +50,6 @@ class RandomShell(cmd.Cmd):
         savedSequences = self.saved.getSequences()
         for seq in savedSequences :
             print(f"- [{seq['name']}] "+" ".join(seq["items"]))
-        print("\n")
 
     def do_start(self,args):
         self.msgs.display("GameStart")

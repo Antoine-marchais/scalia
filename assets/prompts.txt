@@ -6,8 +6,9 @@ Base :
 
 	- add sequences by typing add
 	- type start with gamemode to start a game
-	- type end to end the game
+	- checkout saved sequences with save
 	- type help for more advanced help
+	- type exit to close the app
 
 Help :
 
@@ -19,10 +20,12 @@ Help :
 	The following commands are available :
 	  - help (show help)
 	  - add (add sequence)
-	  - displaySequences (showw added sequences)
+	  - current (showw added sequences)
 	  - remove [n] (remove sequence of given index)
+	  - save (save a sequence)
+	  - forget [name] (remove from saved sequenxes)
+	  - saved (display saved sequences)
 	  - start (start game)
-	  - end (end game)
 	  - exit (exit game)
 
 	There are several gamemodes : 
@@ -38,23 +41,37 @@ Help :
 	  followed by a sequence separated by whitespaces.
 	  - the user can remove sequences by typing the command
 	  remove followed by the ID of the sequence.
-	  - the useer can check out added sequences by typing the
+	  - the user can check out added sequences by typing the
 	  command checkout.
 	  - the user can start the game using the start command
 	  followed by the gamemode.
 
+	Saved sequences :
+	  - the user can save new sequences with the command save,
+	  he will then be asked to choose an alias for the sequence
+	  - the user can add saved sequences using the add $name
+	  syntax
+	  - the user can remove saved sequences with forget
+	  - the user can display saved sequences with save
+
 	In game : 
 	  - the user can get the next combination by pressing enter.
-	  - the user can end the game with enter.
+	  - the user can end the game with the end command
 
 DisplaySequences :
 
-	The current Sequences have been added
+	The current sequences will be used in the  next game :
+
+SavedSequences :
+
+	the following sequences can be added with the syntax 
+	add $sequenceName. type help to get more info on how to
+	manage saved sequences :
 
 GameStart :
 
 	The game has started !
-	Press enter to get a new combination, and type end to finsh 
+	Press enter to get a new combination, and type end to finish 
 	the game.
 
 GameEnd : 
