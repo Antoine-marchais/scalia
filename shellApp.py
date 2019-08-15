@@ -1,11 +1,13 @@
 import cmd
 from randomSequence import *
 import prompts
-import game
+import gameStrategy
 from sequencePersistence import *
 
 class RandomShell(cmd.Cmd):
-
+    """
+    Command line shell for the scalia App
+    """
     def __init__(self):
         super().__init__()
         self.started = False
@@ -53,8 +55,23 @@ class RandomShell(cmd.Cmd):
 
     def do_start(self,args):
         self.msgs.display("GameStart")
-        game.startGame(self.rd,args)
+        end = False
+        if len(args)==0:
+            game = gameStrategy.startGame(self.rd,"",[])
+        else:
+            game = gameStrategy.startGame(self.rd,args.split()[0],args.split()[1:])
+        while not(end):
+            seq = game.next()
+            if seq != None : 
+                print(" ".join(seq))
+            else :
+                print("no more combinations, type enter to quit")
+                end = True
+            command = input()
+            if command == "end":
+                end = True
         self.rd.flush()
+
 
     def do_exit(self,args):
         self.msgs.display("Quit")
