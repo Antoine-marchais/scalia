@@ -5,11 +5,11 @@ class SelectionUI(tk.Frame):
     """
     Selection menu where the user sets up his next game
     """
-    def __init__(self,parent,w,h):
+    def __init__(self,parent):
         """
         pack the Gamemode menu, the sequence menu and a start button
         """
-        super().__init__(parent.master,width=w,height=h)
+        super().__init__(parent.master)
         self.parent = parent
 
         #title 

@@ -1,7 +1,7 @@
 import tkinter as tk
 from randomSequence import *
 import prompts
-import game
+import gameStrategy
 from sequencePersistence import *
 from components.welcomeUI import WelcomeUI
 from components.selectionUI import SelectionUI
@@ -28,9 +28,8 @@ class ScaliaGUI :
         destroy the last UI before showing the next one
         """
         self.currentUI.destroy()
-        self.currentUI = UI(self,900,700)
-        self.currentUI.pack()
-        self.currentUI.pack_propagate(0)
+        self.currentUI = UI(self)
+        self.currentUI.pack(fill="both",expand=1)
 
     def updateSequences(self,sequences):
         self.rd.flush()
@@ -40,8 +39,7 @@ class ScaliaGUI :
         print(self.rd.picks)
 
     def startGame(self,mode,*params):
-        self.gameMode=mode
-        self.gameParams=params
+        self.picker = gameStrategy.startGame(self.rd,mode,params)
         self.showUI(GameUI)
 
     def endGame(self):
